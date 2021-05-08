@@ -22,25 +22,25 @@ export interface FinishConditions {
   styleUrls: ['./solver.component.sass'],
 })
 export class SolverComponent implements OnInit, OnDestroy {
-  public isSimulationRunning: boolean = false;
+  public isSimulationRunning = false;
   public assumption: EpochAssumption = {
     dead: 0,
     sick: 0,
     immune: 0,
   };
-  public ticks: number = 0;
+  public ticks = 0;
 
-  public totalPopulation: number = 200;
-  public unitBox: number = 30;
+  public totalPopulation = 200;
+  public unitBox = 30;
   public infectionProbability: 10;
-  public infectionRadius: number = 10;
-  public deathRate: number = 10;
-  public infectionInterval: number = 10;
-  public infectedAtStart: number = 10;
+  public infectionRadius = 10;
+  public deathRate = 10;
+  public infectionInterval = 10;
+  public infectedAtStart = 10;
   public conditions: FinishConditions = { condition: FinishCondition.DEAD, percent: 55 };
   public isConditionMet = false;
-  public info: string = 'Ready!';
-  private radius: number = 5;
+  public info = 'Ready!';
+  private radius = 5;
   private subscriptionDestructor: Subject<void> = new Subject<void>();
 
   private static getPercentage(value: number, population: number): number {
@@ -92,7 +92,7 @@ export class SolverComponent implements OnInit, OnDestroy {
       this.infectionRadius,
       this.deathRate,
       this.infectionInterval,
-      Math.floor(this.infectedAtStart / 100 * this.totalPopulation) 
+      Math.floor(this.infectedAtStart / 100 * this.totalPopulation)
     );
     this.isSimulationRunning = true;
     this.isConditionMet = false;
